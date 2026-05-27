@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V&V Demolition LLC</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #09090b; color: white; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(0,0,0,.92); border-bottom: 1px solid rgba(245,158,11,.25); }
+    .nav { max-width: 1200px; margin: auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { height: 58px; max-width: 95px; object-fit: contain; }
+    .brand h1 { margin: 0; font-size: 20px; }
+    .brand p { margin: 4px 0 0; color: #f59e0b; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+    .links { display: flex; gap: 22px; font-weight: bold; font-size: 14px; }
+    .links a:hover { color: #f59e0b; }
+    .btn { display: inline-block; background: #f59e0b; color: #000; padding: 14px 22px; border-radius: 16px; font-weight: 900; border: none; cursor: pointer; }
+    .btn:hover { background: #fbbf24; }
+    .btn.outline { background: transparent; color: white; border: 1px solid rgba(245,158,11,.6); }
+    .hero { background: radial-gradient(circle at top right, rgba(245,158,11,.28), transparent 35%), linear-gradient(135deg,#000,#18181b,#000); }
+    .hero-inner { max-width: 1200px; margin: auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .badge { display: inline-block; border: 1px solid rgba(245,158,11,.35); background: rgba(245,158,11,.1); color: #fbbf24; border-radius: 999px; padding: 10px 16px; font-weight: bold; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+    h2.hero-title { font-size: clamp(44px, 7vw, 76px); line-height: .95; margin: 24px 0; }
+    .lead { color: #d4d4d8; font-size: 19px; line-height: 1.7; }
+    .hero-logo { border: 1px solid rgba(245,158,11,.25); background: rgba(0,0,0,.45); border-radius: 32px; padding: 34px; box-shadow: 0 20px 60px rgba(0,0,0,.4); text-align: center; }
+    .hero-logo img { width: 100%; max-width: 460px; }
+    section { max-width: 1200px; margin: auto; padding: 76px 24px; }
+    .section-kicker { color: #f59e0b; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; }
+    h2 { font-size: 42px; margin: 10px 0 18px; }
+    .section-subtitle { color: #d4d4d8; line-height: 1.7; max-width: 760px; margin-bottom: 30px; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: rgba(24,24,27,.85); border: 1px solid rgba(245,158,11,.22); border-radius: 24px; padding: 24px; font-size: 20px; font-weight: 900; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .gallery-card { overflow: hidden; border-radius: 24px; border: 1px solid rgba(245,158,11,.22); background: #18181b; }
+    .gallery-card img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .gallery-card div { padding: 18px; }
+    .gallery-card h3 { margin: 0 0 8px; font-size: 20px; }
+    .gallery-card p { margin: 0; color: #d4d4d8; line-height: 1.5; font-size: 15px; }
+    .features-wrap { background: rgba(24,24,27,.65); }
+    .features { max-width: 1200px; margin: auto; padding: 76px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .feature h3 { margin: 0 0 10px; font-size: 25px; }
+    .feature p { color: #d4d4d8; line-height: 1.7; }
+    .reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .review-card { background: rgba(24,24,27,.85); border: 1px solid rgba(245,158,11,.22); border-radius: 24px; padding: 24px; }
+    .stars { color: #f59e0b; letter-spacing: 2px; font-size: 20px; margin-bottom: 12px; }
+    .review-card p { color: #d4d4d8; line-height: 1.7; }
+    .contact-box { border: 1px solid rgba(245,158,11,.28); border-radius: 32px; background: linear-gradient(135deg,#000,#111); padding: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 34px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+    .contact-info p, .contact-info a { display: block; margin: 16px 0; color: #e4e4e7; font-weight: bold; }
+    input, select, textarea { width: 100%; margin-bottom: 14px; padding: 15px 16px; border-radius: 16px; border: 1px solid #27272a; background: #09090b; color: white; font-size: 16px; }
+    textarea { min-height: 130px; }
+    footer { border-top: 1px solid rgba(245,158,11,.25); text-align: center; padding: 30px; color: #a1a1aa; background: #000; }
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero-inner, .contact-box, .features, .reviews { grid-template-columns: 1fr; }
+      .services, .gallery { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; }
+      .brand img { height: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <img src="logo.png" alt="V&V Demolition LLC Logo" />
+        <div>
+          <h1>V&V Demolition LLC</h1>
+          <p>Precision Meets Possibility</p>
+        </div>
+      </div>
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn" href="#contact">Get Estimate</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="badge">Demolition • Hardscape/Landscape • Dirt Work • Land Clearing • Tree Trimming • Junk Removal • Hauling</span>
+          <h2 class="hero-title">Professional demolition done right.</h2>
+          <p class="lead">V&V Demolition LLC provides dependable demolition, hardscape and landscape services, dirt work, debris removal, hauling, land clearing, and tree trimming for homeowners, contractors, and businesses.</p>
+          <p>
+            <a class="btn" href="#contact">Request a Free Estimate</a>
+            <a class="btn outline" href="#work">View Our Work</a>
+          </p>
+        </div>
+        <div class="hero-logo">
+          <img src="logo.png" alt="V&V Demolition LLC" />
+        </div>
+      </div>
+    </div>
+
+    <section id="services">
+      <p class="section-kicker">What We Do</p>
+      <h2>Services</h2>
+      <div class="services">
+        <div class="card">✓ Demolition</div>
+        <div class="card">✓ Hardscape / Landscape</div>
+        <div class="card">✓ Dirt Work</div>
+        <div class="card">✓ Land Clearing</div>
+        <div class="card">✓ Tree Trimming</div>
+        <div class="card">✓ Junk Removal</div>
+        <div class="card">✓ Hauling</div>
+      </div>
+    </section>
+
+    <section id="work">
+      <p class="section-kicker">Completed Projects</p>
+      <h2>Work We’ve Already Done</h2>
+      <p class="section-subtitle">A look at recent hardscape, landscape cleanup, dirt work, and site preparation completed by V&V Demolition LLC.</p>
+      <div class="gallery">
+        <div class="gallery-card">
+          <img src="work-1.jpeg" alt="Completed rock landscape project" />
+          <div>
+            <h3>Rock Landscape Installation</h3>
+            <p>Clean decorative rock installation with planting areas, stepping stones, and a finished yard layout.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="work-2.jpeg" alt="Finished hardscape and landscape project with water feature" />
+          <div>
+            <h3>Hardscape & Landscape Finish</h3>
+            <p>Completed rock bed area with plants, pathway stones, and water feature cleanup.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="work-3.jpeg" alt="Dirt work and site preparation with equipment" />
+          <div>
+            <h3>Dirt Work & Site Prep</h3>
+            <p>Grading and clearing work completed with equipment to prepare the area for the next phase.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="features-wrap" id="about">
+      <div class="features">
+        <div class="feature card">
+          <h3>Safe & Professional</h3>
+          <p>Job sites handled with safety, planning, and clean execution from start to finish.</p>
+        </div>
+        <div class="feature card">
+          <h3>Haul-Off Included</h3>
+          <p>Debris removal, dump runs, hauling, and cleanup can be included in your project estimate.</p>
+        </div>
+        <div class="feature card">
+          <h3>Residential & Commercial</h3>
+          <p>From small tear-outs to larger projects, V&V Demolition LLC is ready to help.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="reviews">
+      <p class="section-kicker">Customer Feedback</p>
+      <h2>Leave a Review</h2>
+      <p class="section-subtitle">Customers can send a review directly to V&V Demolition LLC. Reviews can be added to the website after approval.</p>
+      <div class="reviews">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <h3>Review Form</h3>
+          <form id="reviewForm">
+            <input required id="reviewName" placeholder="Your Name" />
+            <select required id="rating">
+              <option value="">Select Rating</option>
+              <option>5 Stars</option>
+              <option>4 Stars</option>
+              <option>3 Stars</option>
+              <option>2 Stars</option>
+              <option>1 Star</option>
+            </select>
+            <textarea required id="reviewText" placeholder="Write your review here"></textarea>
+            <button class="btn" style="width:100%" type="submit">Send Review</button>
+          </form>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <h3>Recent Customer Reviews</h3>
+          <p><strong>No public reviews posted yet.</strong></p>
+          <p>After customers send reviews, you can add your best reviews here so new customers can see them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <div class="contact-info">
+          <p class="section-kicker">Get Started</p>
+          <h2>Need an estimate?</h2>
+          <p>Send project details, photos, and the address. We’ll help you price the work and plan the cleanout.</p>
+          <a href="tel:2055045947">Phone: 205-504-5947</a>
+          <a href="mailto:vandvdemolitionllc@gmail.com">Email: vandvdemolitionllc@gmail.com</a>
+          <p>Serving Alabama and surrounding areas</p>
+        </div>
+
+        <form id="estimateForm">
+          <input required id="name" placeholder="Name" />
+          <input required id="contactInfo" placeholder="Phone or Email" />
+          <input required id="address" placeholder="Project Address" />
+          <select required id="projectType">
+            <option value="">Select Project Type</option>
+            <option>Demolition</option>
+            <option>Hardscape / Landscape</option>
+            <option>Dirt Work</option>
+            <option>Land Clearing</option>
+            <option>Tree Trimming</option>
+            <option>Junk Removal</option>
+            <option>Hauling</option>
+            <option>Other</option>
+          </select>
+          <textarea required id="details" placeholder="Tell us about the project"></textarea>
+          <button class="btn" style="width:100%" type="submit">Send Estimate Request</button>
+          <p style="text-align:center;color:#a1a1aa;font-size:13px;">This opens an email with the customer’s request already filled out.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> V&V Demolition LLC. All rights reserved.</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("estimateForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const contact = document.getElementById("contactInfo").value;
+      const address = document.getElementById("address").value;
+      const projectType = document.getElementById("projectType").value;
+      const details = document.getElementById("details").value;
+      const subject = encodeURIComponent("New Estimate Request from " + (name || "Website Lead"));
+      const body = encodeURIComponent(
+        "New estimate request from V&V Demolition LLC website\n\n" +
+        "Name: " + name + "\n" +
+        "Phone or Email: " + contact + "\n" +
+        "Project Address: " + address + "\n" +
+        "Project Type: " + projectType + "\n\n" +
+        "Project Details:\n" + details + "\n\n" +
+        "Please contact this customer to schedule an estimate."
+      );
+      window.location.href = "mailto:vandvdemolitionllc@gmail.com?subject=" + subject + "&body=" + body;
+    });
+
+    document.getElementById("reviewForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("reviewName").value;
+      const rating = document.getElementById("rating").value;
+      const review = document.getElementById("reviewText").value;
+      const subject = encodeURIComponent("New Customer Review from " + (name || "Website Customer"));
+      const body = encodeURIComponent(
+        "New review from V&V Demolition LLC website\n\n" +
+        "Name: " + name + "\n" +
+        "Rating: " + rating + "\n\n" +
+        "Review:\n" + review + "\n\n" +
+        "You can copy this review onto the website after approval."
+      );
+      window.location.href = "mailto:vandvdemolitionllc@gmail.com?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
